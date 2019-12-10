@@ -1,4 +1,4 @@
 [submodule "scripts"]
 	path = scripts
-	url = https://github.com/bokov/ut-template
+	url = git@github.com:bokov/ut-template
         branch = ft_tidbits_dr_refactor00
