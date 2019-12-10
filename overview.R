@@ -38,7 +38,13 @@
 #' 
 #' ## The project directory
 #' 
-#' _coming soon_
+#' In addition to [`example_analysis.R`](example_analysis.R) which attemtps to
+#' (randomly) select valid variables from your data and do example analysis of
+#' them, there is also [`minimum_scriport.R`](minimum_scriport.R) which is blank
+#' except a few lines of code at the beginning and end that give it access to
+#' Ripcord's features and a few explanatory comments.
+#' 
+#' _more coming soon_
 #' 
 #' ## The `scripts` directory
 #' 
