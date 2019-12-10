@@ -97,6 +97,10 @@ gitbootstrap(instreqs = c('crayon','usethis','rmarkdown'));
 .ztemp0 <- usethis::use_zip(.templatepath,'.',cleanup = TRUE);
 #' Merge into current directory, with backups
 mergedirs(.ztemp0);
+#' Rename .Rproj file
+if(file.exists('ripcord.Rproj'){
+  try(file.rename('ripcord.Rproj',paste0(basename(getwd()),'.Rproj')));
+}
 #' Get info about the scripts submodule
 .scriptsinfo <- getkeyval(
   filesections('.gitmodules',sectionrxp = '\\[.*submodule'
