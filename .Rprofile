@@ -34,7 +34,7 @@ clean_slate <- function(command="",removepatt='^\\.RData$|*\\.[Rr]\\.rdata$|*\\.
                              ,'function), don\'t expect any code that you put '
                              ,'after it to work!');
   # remove cached files
-  file.remove(list.files(pattern=removepatt,all.files=TRUE,recursive=TRUE,full.names = TRUE));
+  file.remove(list.files(pattern=removepatt,all.files=TRUE,full.names = TRUE));
   # clear out calling environment
   rm(list=ls(all.names=all,envir = envir),envir = envir);
   # also global environment if specified
