@@ -23,8 +23,8 @@
 #' ordinary R scripts-- anything you can do to an R script you can do to these.
 #' But our R scripts have the following additional features:
 #' 
-#' 1. They outsource code certain tasks to scripts in the [`scripts`](scripts) directory. 
-#'    These tasks include loading/interpreting data files and keeping track of
+#' 1. They delegate certain tasks to scripts in the [`scripts`](scripts) directory, 
+#'    which include loading/interpreting data files and keeping track of
 #'    which libraries are needed. Read more about them below in 
 #'    'The `scripts` directory' section.
 #' 2. These scripts have a standardized way of specifying what other scripts
@@ -53,3 +53,4 @@
 #+ echo=FALSE, results='hide'
 save(file=paste0(.currentscript,'.rdata'),list=setdiff(ls(),.origfiles));
 c()
+
