@@ -24,7 +24,7 @@ options(tsci.gitsub = function(stopfile='.developer'){if(!file.exists(stopfile))
     message('Developer mode-- ignoring.'); return(0);
   }});
 
-clean_slate <- function(command="",removepatt='^\\.RData$|*\\.[Rr]\\.rdata$|*\\.html$'
+clean_slate <- function(command="",removepatt='^\\.RData$|.*\\.[Rr]\\.rdata$|.*\\.html$|.*_cache$'
                         ,all=TRUE,cleanglobal=TRUE
                         ,envir=parent.frame()){
   if(!interactive()) warning('This function is intended to run in an '
