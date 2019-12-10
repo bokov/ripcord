@@ -33,7 +33,9 @@
 #' the value to an empty vector, `c()`. Likewise if you have no numeric 
 #' outcomes.
 binary_outcome <- choose_outcomes(dat01,'c_safetf');
+binary_outcome;
 numeric_outcome <- choose_outcomes(dat01,'c_safenumeric');
+numeric_outcome;
 #' 
 #' Insuring that the binary outcomes get treated as discrete values
 #' 
@@ -42,10 +44,12 @@ for(ii in binary_outcome) dat01[[ii]] <- factor(dat01[[ii]]);
 #' column names you actually want to serve as the predictor variables
 predictorvars <- choose_predictors(dat01,'c_safe'
                                    ,exclude=c(binary_outcome,numeric_outcome));
+predictorvars;
 #' If you are satisfied with your choice of `binary_outcome`, `numeric_outcome`,
 #' and `predictorvars` you don't need to change the following line. It simply
 #' combines the above.
 mainvars <- c(predictorvars,binary_outcome,numeric_outcome);
+mainvars;
 #' ### Plot the data
 #' 
 #' #### Explore pairwise relationships 
