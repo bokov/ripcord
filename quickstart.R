@@ -201,7 +201,7 @@ if(file.exists('scripts/quickstart_patch.R')) source('scripts/quickstart_patch.R
 
 #### load scriports ####
 #tidbits:::load_deps(c('simdata.R','dictionary.R'));
-load_deps2('prep_deps.R');
+load_deps2('overview.R');
 ui_done('Deployment successful, report builds are done.');
 if(file.exists('overview.html')) try(browseURL('overview.html'));
 
