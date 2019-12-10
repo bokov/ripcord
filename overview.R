@@ -51,4 +51,5 @@
 #' _coming soon_
 #' 
 #+ echo=FALSE, results='hide'
+save(file=paste0(.currentscript,'.rdata'),list=setdiff(ls(),.origfiles));
 c()
