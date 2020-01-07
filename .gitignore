@@ -27,7 +27,6 @@ vignettes/*.pdf
 *.Rproj
 *.Rout
 # Local configuration
-config.R
 local
 # Other temp files
 .~lock.*#
