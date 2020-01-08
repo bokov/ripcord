@@ -99,7 +99,7 @@ gitbootstrap(instreqs = c('crayon','usethis','rmarkdown'));
 mergedirs(.ztemp0);
 #' Rename .Rproj file
 if(file.exists('ripcord.Rproj')){
-  try(file.rename('ripcord.Rproj',paste0(basename(getwd()),'.Rproj')));
+  try(file.rename('ripcord.Rproj',paste0(basename(getwd()),'.Rproj')),silent=TRUE);
 }
 #' Get info about the scripts submodule
 .scriptsinfo <- getkeyval(
