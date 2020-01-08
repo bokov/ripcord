@@ -37,6 +37,7 @@ if(length(intersect(c('desktop','documents','downloads','rgui.exe','r.exe'
   .savepaths <- file.path('~',c('Documents','documents','Desktop','desktop'));
   if(!is.na(.newdirpath<-match(TRUE
                                ,dir.exists(normalizePath(.savepaths
+                                                         ,winslash = '/'
                                                          ,mustWork = FALSE))))){
     .newdir <- file.path(.savepaths[.newdirpath],.newdir)};
   message(sprintf(
