@@ -74,8 +74,8 @@ gitbootstrap <- function(gitrepos=list(#trailR=list(repo='bokov/trailR'
 clean_slate <- function(...){gitbootstrap();tidbits:::clean_slate(...)};
 
 #### init ####
-.templatepath <- 'http://github.com/bokov/ripcord/archive/master.zip';
-.scriptspath <- 'http://github.com/bokov/ut-template/archive/master.zip';
+.templatepath <- 'http://github.com/bokov/ripcord/archive/enh_wincompat.zip';
+.scriptspath <- 'http://github.com/bokov/ut-template/archive/enh_wincompat.zip';
 .oldoptions <- options();
 options(browser='false'); # to make usethis::use_zip calm down a little bit
 .tempenv00 <- new.env();
