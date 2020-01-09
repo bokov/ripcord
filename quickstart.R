@@ -37,6 +37,7 @@ if(length(intersect(c('desktop','documents','downloads','rgui.exe','r.exe'
   .savepaths <- file.path('~',c('Documents','documents','Desktop','desktop'));
   if(!is.na(.newdirpath<-match(TRUE
                                ,dir.exists(normalizePath(.savepaths
+                                                         ,winslash = '/'
                                                          ,mustWork = FALSE))))){
     .newdir <- file.path(.savepaths[.newdirpath],.newdir)};
   message(sprintf(
@@ -74,8 +75,8 @@ gitbootstrap <- function(gitrepos=list(#trailR=list(repo='bokov/trailR'
 clean_slate <- function(...){gitbootstrap();tidbits:::clean_slate(...)};
 
 #### init ####
-.templatepath <- 'http://github.com/bokov/ripcord/archive/master.zip';
-.scriptspath <- 'http://github.com/bokov/ut-template/archive/master.zip';
+.templatepath <- 'http://github.com/bokov/ripcord/archive/enh_wincompat.zip';
+.scriptspath <- 'http://github.com/bokov/ut-template/archive/enh_wincompat.zip';
 .oldoptions <- options();
 options(browser='false'); # to make usethis::use_zip calm down a little bit
 .tempenv00 <- new.env();
@@ -99,7 +100,9 @@ gitbootstrap(instreqs = c('crayon','usethis','rmarkdown'));
 mergedirs(.ztemp0);
 #' Rename .Rproj file
 if(file.exists('ripcord.Rproj')){
-  try(file.rename('ripcord.Rproj',paste0(basename(getwd()),'.Rproj')),silent=TRUE);
+  localrproj <- paste0(basename(getwd()),'.Rproj');
+  if(file.exists(localrproj)) file.rename(localrproj,paste0('old.',localrproj));
+  try(file.rename('ripcord.Rproj',localrproj),silent=TRUE);
 }
 #' Get info about the scripts submodule
 .scriptsinfo <- getkeyval(
