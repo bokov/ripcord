@@ -22,6 +22,7 @@ git config -f .gitmodules --get-regexp '^submodule\..*\.path$' |
             # default to master
             branch=$(git config -f .gitmodules --get "$branch_key");
             if [ ! "$branch" ]; then branch="master"; fi;
+            git rm -r "$path";
             git submodule add -f -b "$branch" "$url" "$path";
         fi;
     done;
