@@ -2,7 +2,10 @@
 deps <- 'overview.R';
 expected_out <- c('data','dictionary','example_analysis'
                     ,'prep_deps','simdata');
-cleanup <- '*\\.html$|*\\.R.rdata$|_files$|_cache$';
+cleanup_files <- '*\\.html$|*\\.R.rdata$|_files$|_cache$';
+
+# cleanup
+unlink(list.files(pattern=cleanup_files),recursive = TRUE, force = TRUE);
 
 # load scripts
 if(file.exists(scripts<-normalizePath('scripts/functions.R',winslash='/'))){
@@ -29,7 +32,4 @@ if(!all(html_found<-file.exists(paste0(expected_out,'.html')))){
   stop('html missing:\n',paste(names(html_found)[!html_found],collapse=', '));
 } else message('All HTML created');
 
-# cleanup
-unlink(list.files(pattern='*\\.html$|*\\.R.rdata$|_files$|_cache$')
-       ,recursive = TRUE, force = TRUE);
 c()
