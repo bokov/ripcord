@@ -1,7 +1,8 @@
 language: r
 #sudo: false
 pandoc_version: 2.3
-script: Rscript --verbose --no-environ --no-restore --no-save ci_test.R
+script: 
+  - Rscript --no-save --verbose --no-save ci_test.R
 cache: 
   packages: true
   directories:
@@ -40,4 +41,4 @@ before_install:
     cd pandoc-crossref && git checkout v0.3.3.0 &&
     stack install && cd ..; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-sudo ln -s $HOME/.local/bin/* /usr/local/bin/; fi
+    sudo ln -s $HOME/.local/bin/* /usr/local/bin/; fi
