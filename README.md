@@ -4,7 +4,7 @@
 Originally this was a collection of template scripts to support a data science course I teach in the TSCI program at UT-Health San Antonio. This is now a standalone framework for rapid setup of analysis projects in any directory you want, using any libraries you want, adding whatever code you want for any purpose you want. This just gives you access to some convenient libraries and functions along with some starter "scriports" (ordinary R scripts but with a comment format that allows them to _also_ get compiled into HTML/Word/PDF).
 
 ## Installation:
-Through RStudio (recommended but not required) or any other means of _interactively_ accessing an R command-line, ```r setwd()``` to a folder which is empty or which has files you want to be part of your project (_and which you have already backed up because this is still a work in progress_) and then execute the following command:
+Through RStudio (recommended but not required) or any other means of _interactively_ accessing an R command-line, ```setwd()``` to a folder which is empty or which has files you want to be part of your project (_and which you have already backed up because this is still a work in progress_) and then execute the following command:
 
 ```r
 source('https://raw.githubusercontent.com/bokov/ripcord/enh_wincompat/quickstart.R');
