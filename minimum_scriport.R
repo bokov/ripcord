@@ -13,11 +13,12 @@
 .currentscript <- current_scriptname('minimum_scriport.R');
 #' ### Start
 #' 
-#' This is the minimum set of commands needed for a script to have access to all
-#' the features of [Ripcord](overview.html). Add any commands you like below.
-#' All the datasets specified in your [`local.config.R`](local.config.R) file
-#' will be available here if it exists, and if it does not, then all the 
-#' datasets specified in your [`config.R`](config.R) file.
+#' In the above lines were the minimum set of commands needed for a script to 
+#' have access to all the features of [Ripcord](overview.html). Add any commands 
+#' you like below. All the datasets specified in your 
+#' [`local.config.R`](local.config.R) file will be available here and if 
+#' [`local.config.R`](local.config.R) does not exist, then all the datasets 
+#' specified in your [`config.R`](config.R) file.
 #' 
 #' Put any R commands you want below. The following datasets are available:
 #' `r pander(names(inputdata))`.
