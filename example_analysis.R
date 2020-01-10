@@ -1,5 +1,6 @@
 #' ---
 #' title: "Example Analysis"
+#' css: "production.css"
 #' output:
 #'   html_document:
 #'     toc: true
