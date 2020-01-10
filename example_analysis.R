@@ -23,6 +23,7 @@
 # do not edit the next two lines
 .junk<-capture.output(source('./scripts/global.R',chdir=TRUE,echo=FALSE));
 .currentscript <- current_scriptname('example_analysis.R');
+if(!exists('dat01')) dat01 <- get(names(inputdata)[1]);
 #' 
 #' 
 #' ### Choosing predictor and response variables
