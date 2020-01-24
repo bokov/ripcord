@@ -67,7 +67,7 @@ a::selection {
   color: #0645ad;
 }
 
-.title, .author, .date, .subtitle { 
+.title, .author, .date, .subtitle {
   text-align: center;
 }
 
@@ -76,14 +76,21 @@ a::selection {
   font-style: normal;
 }
 
-h3.subtitle,.date,div.abstract { 
-  margin-top: 0; 
+h3.subtitle,.date,div.abstract {
+  margin-top: 0;
   margin-bottom: 30px;
 }
 
 h1,h2,h3,h4 {
   font-weight: 500;
+  margin-top: 25px; margin-bottom: 5px;
+  page-break-after: avoid;
 }
+
+.table-condensed {
+  margin-top: 20px;
+}
+
 
 /* otherwise the title h1 doesn't inherit the fontsize correctly */
 h1,h1.title {
@@ -103,7 +110,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1em; 
+  font-size: 1em;
   font-style: italic;
 }
 
@@ -155,6 +162,7 @@ p.abstract:after {
 
 .table caption {
     color: #777;
+    margin-top: 15px;
     padding-bottom: 0;
     text-align: justify;
     text-justify: inter-character;
@@ -163,4 +171,14 @@ p.abstract:after {
 .table caption .table_title {
     color: #000;
     font-weight: 800;
+}
+
+@media print {
+  #TOC { display: none;}
+
+  .toc-content {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
