@@ -22,6 +22,12 @@
 #+ load_deps, echo=FALSE, message=FALSE, warning=FALSE,results='hide'
 # do not edit the next two lines
 .junk<-capture.output(source('./scripts/global.R',chdir=TRUE,echo=FALSE));
+#' Set some formatting options for this document
+panderOptions('table.alignment.default','right');
+panderOptions('table.split.table',Inf);
+panderOptions('p.wrap','');
+panderOptions('p.copula',', and ');
+
 .currentscript <- current_scriptname('example_analysis.R');
 if(!exists('dat01')) dat01 <- get(names(inputdata)[1]);
 #' 
@@ -79,7 +85,7 @@ dat01[,mainvars] %>% mutate_at(.,v(c_ordinal,.),factor) %>%
 pander(print(CreateTableOne(vars = mainvars, strata = binary_outcome[1]
                             ,data=dat01, includeNA=TRUE, test=FALSE)
              , printToggle=FALSE)
-       , caption='Cohort Characterization');
+       ,caption='Cohort Characterization');
 #' 
 #' ### Specify the statistical models
 #' 
