@@ -39,4 +39,6 @@ data_characterization.R.rdata
 *.spin.R
 *.spin.Rmd
 *.R.rdata
+*.R.unsampled.rdata
 *.rda
+*.xlsx
