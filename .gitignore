@@ -31,6 +31,7 @@ local
 local.config.R
 # Other temp files
 .~lock.*#
+.out
 # We don't commit data unless we really mean it.
 *.csv
 data_characterization.R.rdata
