@@ -16,3 +16,6 @@ After you are done selecting and naming files, a bunch of scriports will be trig
 I am grateful to you for [bug reports and any other feedback you may have to offer](https://github.com/bokov/ripcord/issues).
 
 -- Alex F. Bokov
+
+[![Travis-CI Build Status](https://travis-ci.org/bokov/test_quickstart.svg?branch=master)](https://travis-ci.org/bokov/test_quickstart)
+
