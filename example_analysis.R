@@ -24,6 +24,7 @@
 .junk<-capture.output(source('./scripts/global.R',chdir=TRUE,echo=FALSE));
 #' Set some formatting options for this document
 panderOptions('table.alignment.default','right');
+panderOptions('table.alignment.rownames','right');
 panderOptions('table.split.table',Inf);
 panderOptions('p.wrap','');
 panderOptions('p.copula',', and ');
@@ -58,6 +59,14 @@ predictorvars;
 #' combines the above.
 mainvars <- c(predictorvars,binary_outcome,numeric_outcome);
 mainvars;
+#' 
+#' ### Data dictionary
+#'
+#' Here are some useful characteristics of the variables in `dat01`
+#'
+pander(attr(dat01,'tblinfo') %>% select(-c('nn','md5')));
+
+#'
 #' ### Plot the data
 #' 
 #' #### Explore pairwise relationships 
