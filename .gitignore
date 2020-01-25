@@ -28,6 +28,7 @@ vignettes/*.pdf
 *.Rout
 # Local configuration
 local
+local.config.R
 # Other temp files
 .~lock.*#
 # We don't commit data unless we really mean it.
