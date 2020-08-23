@@ -58,16 +58,20 @@ project here later. We recommend allowing this script to create a new directory,
 
 gitbootstrap <- function(gitrepos=list(#trailR=list(repo='bokov/trailR'
                                        #           ,ref='integration')
-                                       tidbits=list(repo='bokov/tidbits'
-                                                     ,ref='integration')
-                                       ,rio=list(repo='bokov/rio'
-                                                 ,ref='master'))
+                                       # tidbits=list(repo='bokov/tidbits'
+                                       #               ,ref='integration')
+                                       # ,rio=list(repo='bokov/rio'
+                                       #           ,ref='master')
+                                       tidbits='https://github.com/bokov/tidbits/archive/integration.zip'
+                                      ,rio='https://github.com/bokov/rio/archive/master.zip'
+                                       )
                          ,instreqs=c()){
   if(!require('devtools')){
     install.packages('devtools',dependencies=TRUE
                      ,repos=getOption('repos','https://cran.rstudio.com'))};
   for(ii in names(gitrepos)){
-    do.call(devtools::install_github,gitrepos[[ii]]);
+    #do.call(devtools::install_github,gitrepos[[ii]]);
+    devtools::install_url(gitrepos[[ii]],upgrade='never');
     library(ii,character.only = TRUE)};
   if(exists('instrequire')) instrequire(instreqs);
 }
