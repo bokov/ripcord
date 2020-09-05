@@ -1,15 +1,15 @@
 ##### disclaimer ####
 message('
-This script will run scripts remotely off the internet and copy files from 
-github into your current directory, ', getwd(),'. If you have any files with 
+This script will run scripts remotely off the internet and copy files from
+github into your current directory, ', getwd(),'. If you have any files with
 matching names, they will be be moved to a backup directory so they won\'t get
 overwritten. Before continuing, please make sure that the data for your project
-is available on this computer and you know where it is. YOU WILL BE ASKED FOR 
-THE LOCATIONS OF YOUR DATA FILES. DEPLOYMENT WILL NOT BE ABLE TO PROCEED WITHOUT 
-AT LEAST ONE DATA FILE. This script will probably also install or update 
+is available on this computer and you know where it is. YOU WILL BE ASKED FOR
+THE LOCATIONS OF YOUR DATA FILES. DEPLOYMENT WILL NOT BE ABLE TO PROCEED WITHOUT
+AT LEAST ONE DATA FILE. This script will probably also install or update
 R-packages on your computer, and it may take a while. If that\'s a problem, this
 is the time to cancel the deployment.
-        
+
 You are running this at your own risk and with no warranty whatsoever.');
 .menu01 <- if(!interactive()) 2 else -1;
 if(file.exists('.auto.menu01.R')) .menu01 <- source('.auto.menu01.R')$value;
@@ -23,8 +23,8 @@ if(.menu01 != 1) stop('
 
 No problem, better safe than sorry!
 
-Please read the comments in this script to understand what it does, and make 
-sure you have backups of all the files in the directory where you run this 
+Please read the comments in this script to understand what it does, and make
+sure you have backups of all the files in the directory where you run this
 script (or that you run it in an empty directory). Then, feel free to come back
 and try this at a later time.');
 
@@ -41,8 +41,8 @@ if(length(intersect(c('desktop','documents','downloads','rgui.exe','r.exe'
                                                          ,mustWork = FALSE))))){
     .newdir <- file.path(.savepaths[.newdirpath],.newdir)};
   message(sprintf(
-    "You are currently in the '%s' directory. You may have a hard time finding your 
-project here later. We recommend allowing this script to create a new directory, 
+    "You are currently in the '%s' directory. You may have a hard time finding your
+project here later. We recommend allowing this script to create a new directory,
 '%s', and deploy there.",getwd(),.newdir));
   .menu00 <- if(!interactive()) 1 else -1;
   if(file.exists('.auto.menu00.R')).menu00 <- source('.auto.menu00.R')$value;
@@ -71,7 +71,8 @@ gitbootstrap <- function(gitrepos=list(#trailR=list(repo='bokov/trailR'
                      ,repos=getOption('repos','https://cran.rstudio.com'))};
   for(ii in names(gitrepos)){
     #do.call(devtools::install_github,gitrepos[[ii]]);
-    devtools::install_url(gitrepos[[ii]],upgrade='never');
+    devtools::install_url(gitrepos[[ii]],upgrade='never',dependencies = TRUE
+                          ,repos=getOption('repos','https://cran.rstudio.com'));
     library(ii,character.only = TRUE)};
   if(exists('instrequire')) instrequire(instreqs);
 }
@@ -89,14 +90,14 @@ if(file.exists('autoresponse.R')){
 };
 
 #' TODO: parse own URL
-#' 
+#'
 #' Install needed libraries
 #### file copy ####
 message('Installing needed packages and their dependencies.'
         ,'This may take a while, please be patient.');
 gitbootstrap(instreqs = c('crayon','usethis','rmarkdown'));
 
-#' 
+#'
 #' Copy down the latest version of the specified branch
 .ztemp0 <- usethis::use_zip(.templatepath,'.',cleanup = TRUE);
 #' Merge into current directory, with backups
@@ -128,7 +129,7 @@ options(browser=.oldoptions$browser); # restore the browser option
 if(file.exists('.auto.confch.R')) stack(source('.auto.confch.R')$value
                                         ,'confchfile');
 readline(ui_todo("
-You will be asked to select the main data file you intend to use with this 
+You will be asked to select the main data file you intend to use with this
 project. Press any key to continue."));
 .inputdata <- smartsetnames(smartfilechoose('data/example_data_pbc.csv'
                                        ,pop('confchfile')));
@@ -161,8 +162,8 @@ while(.confmain<4 || length(.inputdata)==0){
                                   ,title='Which variable do you wish to rename?'
                                   ,extramessage = {
                                     ui_line(
-"After you enter in the name you want it will get modified for uniqueness, 
-compatibility with R and ease of typing. Names starting with {ui_code('dat')} 
+"After you enter in the name you want it will get modified for uniqueness,
+compatibility with R and ease of typing. Names starting with {ui_code('dat')}
 will be renumbered. Type {ui_code(0)} to cancel and go back to previous menu.")}
                                   ,ignorezero = FALSE,batchmode=0
                                   ,auto=pop('confchfile'));
@@ -179,8 +180,8 @@ will be renumbered. Type {ui_code(0)} to cancel and go back to previous menu.")}
            .toremove <- smartmenu(.inputdata
                                   ,title='Which file do you wish to un-select?'
                                   ,extramessage = {ui_line(
-'The file you unselect will not be touched, just its data will not be imported 
-into this project. Type {ui_code(0)} to not select any files and return to the 
+'The file you unselect will not be touched, just its data will not be imported
+into this project. Type {ui_code(0)} to not select any files and return to the
 previous menu.')}
                                   ,ignorezero = FALSE, batchmode = 0
                                   ,auto=pop('confchfile'));
